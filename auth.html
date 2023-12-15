@@ -7,15 +7,15 @@
 <body>
     <script>
         // Initialize Nango
-        const nango = new Nango({ publicKey: 'YOUR_NANGO_PUBLIC_KEY' });
+        const nango = new Nango({ publicKey: '71c65a02-4072-4c67-a26e-1f6efc264b39' });
 
         // Function to start authentication
         function startAuth() {
-            nango.auth('YOUR_INTEGRATION_ID', 'UNIQUE_USER_IDENTIFIER')
+            nango.auth('demo-github-integration', 'prakhar_taxblue')
                 .then(result => {
                     // Handle successful authentication
                     // Send result back to your Node.js server
-                    fetch('YOUR_NODE_JS_SERVER_ENDPOINT', {
+                    fetch('https://88acd9dc3a734ac09cd68423adf6e1ea.vfs.cloud9.ap-southeast-2.amazonaws.com/', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
