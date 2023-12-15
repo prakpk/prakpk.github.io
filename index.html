@@ -1,1 +1,38 @@
-"hello World"
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nango Authentication</title>
+    <script src="https://cdn.jsdelivr.net/npm/@nangohq/frontend@latest/dist/index.min.js"></script>
+</head>
+<body>
+    <script>
+        // Initialize Nango
+        const nango = new Nango({ publicKey: 'YOUR_NANGO_PUBLIC_KEY' });
+
+        // Function to start authentication
+        function startAuth() {
+            nango.auth('YOUR_INTEGRATION_ID', 'UNIQUE_USER_IDENTIFIER')
+                .then(result => {
+                    // Handle successful authentication
+                    // Send result back to your Node.js server
+                    fetch('YOUR_NODE_JS_SERVER_ENDPOINT', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(result)
+                    }).then(() => {
+                        window.alert('Authentication successful!');
+                        // Optionally redirect or inform the user
+                    });
+                })
+                .catch(error => {
+                    console.error('Authentication error:', error);
+                });
+        }
+
+        // Start the auth process immediately for this example
+        startAuth();
+    </script>
+</body>
+</html>
