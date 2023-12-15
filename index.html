@@ -8,7 +8,8 @@
 
 async function loadNango() {
     const NangoModule = await import('https://cdn.jsdelivr.net/npm/@nangohq/frontend@latest/dist/index.min.js');
-    nango = new NangoModule.default({ publicKey: '71c65a02-4072-4c67-a26e-1f6efc264b' });
+    // nango = new NangoModule.default({ publicKey: '71c65a02-4072-4c67-a26e-1f6efc264b' });
+    nango = new NangoModule.default({ publicKey: '71c65a02-4072-4c67-a26e-1f6efc264b39' });
     // Rest of your code
 }
 
@@ -17,6 +18,7 @@ loadNango();
         // Function to initialize Nango and start authentication
         function startAuth() {
             if (!nango) {
+                // nango = new Nango({ publicKey: '71c65a02-4072-4c67-a26e-1f6efc264b39' });
                 nango = new Nango({ publicKey: '71c65a02-4072-4c67-a26e-1f6efc264b39' });
             }
 
