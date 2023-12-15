@@ -22,21 +22,23 @@ loadNango();
                 nango = new Nango({ publicKey: '71c65a02-4072-4c67-a26e-1f6efc264b39' });
             }
 
-            nango.auth('demo-github-integration', 'prakhar_taxblue')
-                .then(result => {
-                    fetch('https://88acd9dc3a734ac09cd68423adf6e1ea.vfs.cloud9.ap-southeast-2.amazonaws.com:3000/', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(result)
-                    })
-                    .then(() => window.alert('Authentication successful!'))
-                    .catch(error => console.error('Error sending data:', error));
-                })
-                .catch(error => {
-                    console.error('Authentication error:', error);
-                });
+            nango.auth('demo-github-integration', 'prakhar_taxblue');
+
+            // nango.auth('demo-github-integration', 'prakhar_taxblue')
+            //     .then(result => {
+            //         fetch('https://88acd9dc3a734ac09cd68423adf6e1ea.vfs.cloud9.ap-southeast-2.amazonaws.com:3000/', {
+            //             method: 'POST',
+            //             headers: {
+            //                 'Content-Type': 'application/json'
+            //             },
+            //             body: JSON.stringify(result)
+            //         })
+            //         .then(() => window.alert('Authentication successful!'))
+            //         .catch(error => console.error('Error sending data:', error));
+            //     })
+            //     .catch(error => {
+            //         console.error('Authentication error:', error);
+            //     });
         }
     </script>
 </head>
