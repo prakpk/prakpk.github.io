@@ -5,35 +5,36 @@
     <script src="https://cdn.jsdelivr.net/npm/@nangohq/frontend@latest/dist/index.min.js"></script>
 </head>
 <body>
-    <script>
-        // Initialize Nango
-        const nango = new Nango({ publicKey: '71c65a02-4072-4c67-a26e-1f6efc264b39' });
 
-        // Function to start authentication
-        function startAuth() {
-            nango.auth('demo-github-integration', 'prakhar_taxblue')
-                .then(result => {
-                    // Handle successful authentication
-                    // Send result back to your Node.js server
-                    fetch('https://88acd9dc3a734ac09cd68423adf6e1ea.vfs.cloud9.ap-southeast-2.amazonaws.com/', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(result)
-                    }).then(() => {
-                        window.alert('Authentication successful!');
-                        // Optionally redirect or inform the user
-                    });
-                })
-                .catch(error => {
-                    console.error('Authentication error:', error);
+<button onclick="startAuth()">Authenticate with GitHub</button>
+
+<script>
+    // Initialize Nango
+    const nango = new Nango({ publicKey: '71c65a02-4072-4c67-a26e-1f6efc264b39' });
+
+    // Function to start authentication
+    function startAuth() {
+        nango.auth('demo-github-integration', 'prakhar_taxblue')
+            .then(result => {
+                // Handle successful authentication
+                // Send result back to your Node.js server
+                fetch('https://88acd9dc3a734ac09cd68423adf6e1ea.vfs.cloud9.ap-southeast-2.amazonaws.com/auth/result', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(result)
+                }).then(response => response.json())
+                .then(data => {
+                    window.alert('Authentication successful!');
+                    console.log(data); // Process the response data
                 });
-        }
+            })
+            .catch(error => {
+                console.error('Authentication error:', error);
+            });
+    }
+</script>
 
-        // Start the auth process immediately for this example
-        startAuth();
-    </script>
 </body>
 </html>
-
