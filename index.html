@@ -3,68 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Integration</title>
-  
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f3f4;
-        }
-        .container {
-            width: 400px;
-            text-align: center;
-            border: 1px solid #e1e4e8;
-            padding: 20px;
-            border-radius: 8px;
-            background: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-        h1 {
-            color: #0366d6;
-            margin-bottom: 20px;
-        }
-        button {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 20px 0;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #586069;
-        }
-    </style>
+    <title>Service Authentication</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css">
+    <!-- Include other head elements and scripts here -->
+    <script src="https://cdn.jsdelivr.net/npm/@nangohq/frontend@latest/dist/index.min.js"></script>
 </head>
 <body>
-    <div class="container">
-         <svg width="100" height="100" viewBox="0 0 16 16" class="bi bi-github" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="github"><path d="M7.999 0C3.582 0 0 3.596 0 8.032a8.031 8.031 0 0 0 5.472 7.621c.4.074.546-.174.546-.387 0-.191-.007-.696-.011-1.366-2.225.485-2.695-1.077-2.695-1.077-.363-.928-.888-1.175-.888-1.175-.727-.498.054-.488.054-.488.803.057 1.225.828 1.225.828.714 1.227 1.873.873 2.329.667.072-.519.279-.873.508-1.074-1.776-.203-3.644-.892-3.644-3.969 0-.877.312-1.594.824-2.156-.083-.203-.357-1.02.078-2.125 0 0 .672-.216 2.2.823a7.633 7.633 0 0 1 2.003-.27 7.65 7.65 0 0 1 2.003.271c1.527-1.039 2.198-.823 2.198-.823.436 1.106.162 1.922.08 2.125.513.562.822 1.279.822 2.156 0 3.085-1.87 3.764-3.652 3.963.287.248.543.738.543 1.487 0 1.074-.01 1.94-.01 2.203 0 .215.144.465.55.386A8.032 8.032 0 0 0 16 8.032C16 3.596 12.418 0 7.999 0z"></path></svg>
-        </svg>
-        <h1>GitHub Integration</h1>
-        <button onclick="startAuth()">Connect with GitHub</button>
-        <div class="footer">
-            Powered by Antei
+   
+    <div class="container mx-auto my-12 p-8 border rounded shadow-lg">
+        <header class="flex justify-center items-center mb-4">
+            <!-- Service Logo -->
+            <img src="service-logo.png" alt="Service Logo" class="h-12">
+            <!-- Arrow Icon -->
+            <span class="mx-2">→</span>
+            <!-- Your App Logo -->
+            <img src="your-app-logo.png" alt="Your App Logo" class="h-12">
+        </header>
+        <h1 class="text-center text-2xl font-bold mb-6">Service is requesting permission to access your workspace</h1>
+        <!-- Permissions List Here -->
+        <!-- Action Buttons -->
+        <div class="flex justify-center mt-6">
+            <button class="btn bg-red-500 text-white px-4 py-2 rounded mr-2">Cancel</button>
+            <button class="btn bg-green-500 text-white px-4 py-2 rounded">Allow</button>
         </div>
     </div>
-
     <script>
         // Include the Nango SDK here
         let nango;
@@ -88,5 +50,6 @@ loadNango();
             nango.auth('demo-github-integration', 'prakhar_taxblue');
         }
     </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
